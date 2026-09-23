@@ -1,0 +1,939 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"page-contact","layout":{"type":"constrained"}} -->
+<main class="wp-block-group page-contact">
+	<!-- wp:group {"className":"page-header","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group page-header">
+		<!-- wp:paragraph {"className":"eyebrow"} -->
+		<p class="eyebrow">Contact</p>
+		<!-- /wp:paragraph -->
+		<!-- wp:post-title {"level":1,"className":"page-title"} /-->
+		<!-- wp:paragraph {"className":"lead"} -->
+		<p class="lead">Tell us about the workflow causing the most friction and we will arrange a focused review.</p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"className":"page-content contact-content","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group page-content contact-content">
+		<!-- wp:columns {"className":"contact-grid"} -->
+		<div class="wp-block-columns contact-grid">
+			<!-- wp:column -->
+			<div class="wp-block-column contact-primary">
+
+				<!-- wp:html -->
+				<form class="guided-intake contact-form" action="/contact-thanks/" method="GET" aria-label="Contact form" data-intake="contact" data-rest-endpoint="intake/contact" novalidate>
+					<div class="intake-status" role="status" aria-live="polite" aria-atomic="true"></div>
+					<div class="intake-progress" aria-hidden="true">
+						<span class="intake-progress-step">Step <span class="intake-progress-current">1</span> of <span class="intake-progress-total">6</span></span>
+						<span class="intake-progress-bar"><span class="intake-progress-fill" style="width: 16.67%"></span></span>
+					</div>
+
+					<!-- Step 1: Your operation -->
+					<fieldset class="intake-step is-active" data-step="1">
+						<legend class="screen-reader-text">Step 1 of 6: Your operation</legend>
+						<h2>What best describes your business?</h2>
+						<p>Choose the option that matches your operation most closely.</p>
+						<div class="option-grid" role="radiogroup" aria-required="true" data-required-group="business_type">
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="business-type-1" name="business_type" value="brokerage" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Brokerage</span>
+							</label>
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="business-type-2" name="business_type" value="property-management" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Property management</span>
+							</label>
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="business-type-3" name="business_type" value="leasing" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Leasing</span>
+							</label>
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="business-type-4" name="business_type" value="developer-sales" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Developer sales</span>
+							</label>
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="business-type-5" name="business_type" value="holiday-homes" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Holiday homes / short-term rentals</span>
+							</label>
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="business-type-6" name="business_type" value="mixed" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Mixed property operations</span>
+							</label>
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="business-type-7" name="business_type" value="other" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Other</span>
+								<span class="card-reveal" data-reveal-for="business_type">
+									<input type="text" name="business_type_other" placeholder="Please describe your operation" aria-label="Please describe your operation">
+								</span>
+							</label>
+						</div>
+					</fieldset>
+
+					<!-- Step 2: Where friction occurs -->
+					<fieldset class="intake-step" data-step="2">
+						<legend class="screen-reader-text">Step 2 of 6: Where friction occurs</legend>
+						<h2>What are you trying to improve?</h2>
+						<p>Select all that apply.</p>
+						<div class="option-grid">
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="frictions-1" name="frictions[]" value="slow-response">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Slow response to new enquiries</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="frictions-2" name="frictions[]" value="routing">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Leads not reaching the right person quickly enough</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="frictions-3" name="frictions[]" value="missing-information">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Enquiries arrive with missing information</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="frictions-4" name="frictions[]" value="missed-followups">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Follow-ups are being missed or delayed</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="frictions-5" name="frictions[]" value="visibility">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Difficult to see which enquiries need attention</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="frictions-6" name="frictions[]" value="manual-channels">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Too much manual work between portals, email, WhatsApp and CRM</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="frictions-7" name="frictions[]" value="pm-coordination">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Property-management issues take too long to coordinate</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="frictions-8" name="frictions[]" value="landlord-approvals">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Landlord approvals are delayed</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="frictions-9" name="frictions[]" value="maintenance-tracking">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Maintenance requests are difficult to track</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="frictions-10" name="frictions[]" value="management-visibility">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Lack clear management visibility</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="frictions-11" name="frictions[]" value="identify-automation">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Want to identify where automation would genuinely help</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="frictions-12" name="frictions[]" value="other">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Something else</span>
+								<span class="card-reveal" data-reveal-for="frictions[]">
+									<textarea name="frictions_other" rows="2" placeholder="Tell us briefly" aria-label="Something else: tell us briefly"></textarea>
+								</span>
+							</label>
+						</div>
+					</fieldset>
+
+					<!-- Step 3: Language & international clients -->
+					<fieldset class="intake-step" data-step="3">
+						<legend class="screen-reader-text">Step 3 of 6: Language and international clients</legend>
+						<h2>What language does your team mainly work in?</h2>
+						<div class="option-grid" role="radiogroup" aria-required="true" data-required-group="team_language">
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="team-language-1" name="team_language" value="english" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">English</span>
+							</label>
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="team-language-2" name="team_language" value="arabic" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Arabic</span>
+							</label>
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="team-language-3" name="team_language" value="english-arabic" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">English and Arabic</span>
+							</label>
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="team-language-4" name="team_language" value="other" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Other</span>
+							</label>
+						</div>
+
+						<h2>Which languages do your clients commonly use?</h2>
+						<p>Select all that apply.</p>
+						<div class="option-grid">
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="client-languages-1" name="client_languages[]" value="english">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">English</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="client-languages-2" name="client_languages[]" value="arabic">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Arabic</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="client-languages-3" name="client_languages[]" value="russian">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Russian</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="client-languages-4" name="client_languages[]" value="chinese">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Chinese / Mandarin</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="client-languages-5" name="client_languages[]" value="hindi">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Hindi</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="client-languages-6" name="client_languages[]" value="urdu">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Urdu</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="client-languages-7" name="client_languages[]" value="french">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">French</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="client-languages-8" name="client_languages[]" value="other">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Other</span>
+								<span class="card-reveal" data-reveal-for="client_languages[]">
+									<input type="text" name="client_languages_other" placeholder="Which languages?" aria-label="Other client languages">
+								</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="client-languages-9" name="client_languages[]" value="not-sure">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Not sure / varies widely</span>
+							</label>
+						</div>
+
+						<h2>Where does language create friction?</h2>
+						<p>Select all that apply.</p>
+						<div class="option-grid">
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="language-frictions-1" name="language_frictions[]" value="initial-understanding">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Initial enquiry understanding</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="language-frictions-2" name="language_frictions[]" value="translating">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Translating messages</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="language-frictions-3" name="language_frictions[]" value="assignment">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Assigning the right broker or staff member</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="language-frictions-4" name="language_frictions[]" value="responding">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Responding quickly</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="language-frictions-5" name="language_frictions[]" value="tone-accuracy">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Maintaining tone or accuracy</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="language-frictions-6" name="language_frictions[]" value="following-up">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Following up</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="language-frictions-7" name="language_frictions[]" value="pm-communication">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Property-management communication</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="language-frictions-8" name="language_frictions[]" value="none">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">We do not currently experience significant language friction</span>
+							</label>
+						</div>
+
+						<h2>How is multilingual communication handled today?</h2>
+						<p>Select all that apply.</p>
+						<div class="option-grid">
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="translation-process-1" name="translation_process[]" value="staff-manual">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Staff translate manually</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="translation-process-2" name="translation_process[]" value="multilingual-staff">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Dedicated multilingual staff</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="translation-process-3" name="translation_process[]" value="crm-translation">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">CRM translation feature</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="translation-process-4" name="translation_process[]" value="ai-translation">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">AI / automated translation</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="translation-process-5" name="translation_process[]" value="external-translator">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">External translator</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="translation-process-6" name="translation_process[]" value="language-team">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Language-specific broker/team</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="translation-process-7" name="translation_process[]" value="no-formal-process">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">No formal process</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="translation-process-8" name="translation_process[]" value="other">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Other</span>
+								<span class="card-reveal" data-reveal-for="translation_process[]">
+									<input type="text" name="translation_process_other" placeholder="Please describe" aria-label="Other translation process">
+								</span>
+							</label>
+						</div>
+
+						<h2>Where do your enquiries commonly come from?</h2>
+						<p>Select all that apply.</p>
+						<div class="option-grid">
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="client-markets-1" name="client_markets[]" value="uae-residents">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">UAE residents</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="client-markets-2" name="client_markets[]" value="gcc">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">GCC</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="client-markets-3" name="client_markets[]" value="europe-uk">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Europe / UK</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="client-markets-4" name="client_markets[]" value="south-asia">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">South Asia</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="client-markets-5" name="client_markets[]" value="east-asia">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">East Asia</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="client-markets-6" name="client_markets[]" value="russia-cis">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Russia / CIS</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="client-markets-7" name="client_markets[]" value="north-america">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">North America</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="client-markets-8" name="client_markets[]" value="africa">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Africa</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="client-markets-9" name="client_markets[]" value="mixed">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Mixed international markets</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="client-markets-10" name="client_markets[]" value="other">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Other</span>
+								<span class="card-reveal" data-reveal-for="client_markets[]">
+									<input type="text" name="client_markets_other" placeholder="Which markets?" aria-label="Other client markets">
+								</span>
+							</label>
+						</div>
+
+						<h2>Which international-client issues create operational friction?</h2>
+						<p>Select all that apply.</p>
+						<div class="option-grid">
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="international-frictions-1" name="international_frictions[]" value="time-zones">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Different time zones</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="international-frictions-2" name="international_frictions[]" value="language">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Language</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="international-frictions-3" name="international_frictions[]" value="out-of-hours-response">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Slow response outside UAE business hours</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="international-frictions-4" name="international_frictions[]" value="incomplete-buyer-info">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Incomplete buyer information</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="international-frictions-5" name="international_frictions[]" value="multiple-channels">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Multiple communication channels</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="international-frictions-6" name="international_frictions[]" value="reassigning">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Reassigning enquiries to the right broker</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="international-frictions-7" name="international_frictions[]" value="remote-viewing">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Remote viewing / meeting coordination</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="international-frictions-8" name="international_frictions[]" value="follow-up-timezones">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Follow-up across time zones</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="international-frictions-9" name="international_frictions[]" value="buying-stage">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Understanding buying stage / seriousness</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="international-frictions-10" name="international_frictions[]" value="documentation">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Documentation coordination</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="international-frictions-11" name="international_frictions[]" value="developer-info">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Developer/project information requests</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="international-frictions-12" name="international_frictions[]" value="none">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">No major international-client friction</span>
+							</label>
+						</div>
+
+						<h2>When international enquiries arrive outside normal office hours, what usually happens?</h2>
+						<div class="option-grid" role="radiogroup" aria-required="true" data-required-group="out_of_hours_process">
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="out-of-hours-process-1" name="out_of_hours_process" value="wait-next-day" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Wait until next business day</span>
+							</label>
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="out-of-hours-process-2" name="out_of_hours_process" value="on-call-broker" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">On-call broker responds</span>
+							</label>
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="out-of-hours-process-3" name="out_of_hours_process" value="auto-distributed" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Automatically distributed</span>
+							</label>
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="out-of-hours-process-4" name="out_of_hours_process" value="timezone-teams" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Different teams cover different time zones</span>
+							</label>
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="out-of-hours-process-5" name="out_of_hours_process" value="outsourced" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Outsourced service</span>
+							</label>
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="out-of-hours-process-6" name="out_of_hours_process" value="varies" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">It varies</span>
+							</label>
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="out-of-hours-process-7" name="out_of_hours_process" value="not-sure" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Not sure</span>
+							</label>
+						</div>
+					</fieldset>
+
+					<!-- Step 4: Systems & handoffs -->
+					<fieldset class="intake-step" data-step="4">
+						<legend class="screen-reader-text">Step 4 of 6: Systems and handoffs</legend>
+						<h2>Which systems are part of the workflow today?</h2>
+						<p>Select all that apply.</p>
+						<div class="option-grid">
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="systems-1" name="systems[]" value="crm">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">CRM</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="systems-2" name="systems[]" value="property-portals">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Property portals</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="systems-3" name="systems[]" value="website-forms">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Website forms</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="systems-4" name="systems[]" value="email">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Email</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="systems-5" name="systems[]" value="whatsapp">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">WhatsApp</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="systems-6" name="systems[]" value="phone">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Phone</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="systems-7" name="systems[]" value="spreadsheet">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Spreadsheet</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="systems-8" name="systems[]" value="pm-software">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Property-management software</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="systems-9" name="systems[]" value="developer-portal">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Developer portal</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="systems-10" name="systems[]" value="other">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Other</span>
+								<span class="card-reveal" data-reveal-for="systems[]">
+									<input type="text" name="systems_other" placeholder="Which systems?" aria-label="Other systems">
+								</span>
+							</label>
+						</div>
+
+						<h2>How are international leads currently routed?</h2>
+						<p>Select all that apply.</p>
+						<div class="option-grid">
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="routing-method-1" name="routing_method[]" value="round-robin">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Round-robin</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="routing-method-2" name="routing_method[]" value="by-language">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">By language</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="routing-method-3" name="routing_method[]" value="by-property">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">By property/project</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="routing-method-4" name="routing_method[]" value="by-market">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">By buyer market/location</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="routing-method-5" name="routing_method[]" value="by-expertise">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">By broker expertise</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="routing-method-6" name="routing_method[]" value="by-availability">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">By availability</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="routing-method-7" name="routing_method[]" value="manual-manager">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Manually by manager/admin</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="routing-method-8" name="routing_method[]" value="crm-automation">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">CRM automation</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="routing-method-9" name="routing_method[]" value="no-consistent-process">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">No consistent process</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="routing-method-10" name="routing_method[]" value="other">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Other</span>
+								<span class="card-reveal" data-reveal-for="routing_method[]">
+									<input type="text" name="routing_method_other" placeholder="Please describe" aria-label="Other routing method">
+								</span>
+							</label>
+						</div>
+
+						<h2>Where does information most often get lost or delayed?</h2>
+						<p>Select all that apply.</p>
+						<div class="option-grid">
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="handoff-frictions-1" name="handoff_frictions[]" value="portal-crm">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Portal → CRM</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="handoff-frictions-2" name="handoff_frictions[]" value="email-crm">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Email → CRM</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="handoff-frictions-3" name="handoff_frictions[]" value="whatsapp-crm">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">WhatsApp → CRM</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="handoff-frictions-4" name="handoff_frictions[]" value="broker-admin">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Broker → admin</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="handoff-frictions-5" name="handoff_frictions[]" value="admin-manager">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Admin → manager</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="handoff-frictions-6" name="handoff_frictions[]" value="landlord-pm">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Landlord → property manager</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="handoff-frictions-7" name="handoff_frictions[]" value="contractor-pm">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Contractor → property manager</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="handoff-frictions-8" name="handoff_frictions[]" value="between-shifts">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Between shifts / teams</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="handoff-frictions-9" name="handoff_frictions[]" value="follow-up">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Follow-up</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="handoff-frictions-10" name="handoff_frictions[]" value="not-sure">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">We are not sure</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="handoff-frictions-11" name="handoff_frictions[]" value="other">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Other</span>
+								<span class="card-reveal" data-reveal-for="handoff_frictions[]">
+									<input type="text" name="handoff_frictions_other" placeholder="Please describe" aria-label="Other handoff friction">
+								</span>
+							</label>
+						</div>
+					</fieldset>
+
+					<!-- Step 5: What outcome you want -->
+					<fieldset class="intake-step" data-step="5">
+						<legend class="screen-reader-text">Step 5 of 6: What outcome you want</legend>
+						<h2>What would a better result look like?</h2>
+						<p>Select all that apply.</p>
+						<div class="option-grid">
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="desired-outcomes-1" name="desired_outcomes[]" value="faster-first-response">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Faster first response</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="desired-outcomes-2" name="desired_outcomes[]" value="fewer-missed">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Fewer missed enquiries</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="desired-outcomes-3" name="desired_outcomes[]" value="better-routing">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Better lead routing</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="desired-outcomes-4" name="desired_outcomes[]" value="better-followup">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Better follow-up consistency</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="desired-outcomes-5" name="desired_outcomes[]" value="less-admin">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Less manual administration</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="desired-outcomes-6" name="desired_outcomes[]" value="faster-incomplete">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Faster handling of incomplete enquiries</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="desired-outcomes-7" name="desired_outcomes[]" value="faster-pm-resolution">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Faster property-management resolution</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="desired-outcomes-8" name="desired_outcomes[]" value="better-visibility">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Better management visibility</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="desired-outcomes-9" name="desired_outcomes[]" value="better-multilingual">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Better multilingual handling</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="desired-outcomes-10" name="desired_outcomes[]" value="evidence-savings">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Clear evidence of time or cost saved</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="desired-outcomes-11" name="desired_outcomes[]" value="not-sure">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Not sure yet — help us identify it</span>
+							</label>
+						</div>
+
+						<h2>How urgent is this?</h2>
+						<div class="option-grid" role="radiogroup" aria-required="true" data-required-group="urgency">
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="urgency-1" name="urgency" value="exploring" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Exploring</span>
+							</label>
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="urgency-2" name="urgency" value="important-this-quarter" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Important this quarter</span>
+							</label>
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="urgency-3" name="urgency" value="needs-attention-now" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Needs attention now</span>
+							</label>
+							<label class="option-card" role="radio" aria-checked="false">
+								<input type="radio" id="urgency-4" name="urgency" value="actively-looking" required>
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Actively looking for a solution</span>
+							</label>
+						</div>
+					</fieldset>
+
+					<!-- Step 6: How you want to engage + contact details -->
+					<fieldset class="intake-step" data-step="6">
+						<legend class="screen-reader-text">Step 6 of 6: How you want to engage</legend>
+						<h2>What would you like from Frictera?</h2>
+						<p>Select all that apply.</p>
+						<div class="option-grid">
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="engagement-intent-1" name="engagement_intent[]" value="friction-review">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Friction Review</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="engagement-intent-2" name="engagement_intent[]" value="operational-assessment">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Operational assessment</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="engagement-intent-3" name="engagement_intent[]" value="research-conversation">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Short research conversation</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="engagement-intent-4" name="engagement_intent[]" value="product-demo">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Product demonstration</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="engagement-intent-5" name="engagement_intent[]" value="pilot-discussion">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Pilot discussion</span>
+							</label>
+							<label class="option-card" role="checkbox" aria-checked="false">
+								<input type="checkbox" id="engagement-intent-6" name="engagement_intent[]" value="not-sure">
+								<span class="check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<span class="label">Not sure yet</span>
+							</label>
+						</div>
+
+						<div class="form-row">
+							<div class="field">
+								<label for="contact-name">Name</label>
+								<input type="text" id="contact-name" name="name" required autocomplete="name">
+							</div>
+							<div class="field">
+								<label for="contact-email">Work email</label>
+								<input type="email" id="contact-email" name="email" required autocomplete="email">
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="field">
+								<label for="contact-company">Company</label>
+								<input type="text" id="contact-company" name="company" required autocomplete="organization">
+							</div>
+							<div class="field">
+								<label for="contact-role">Role</label>
+								<input type="text" id="contact-role" name="role" required>
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="field">
+								<label for="contact-team-size">Approximate team size</label>
+								<select id="contact-team-size" name="team-size">
+									<option value="">Select a range</option>
+									<option value="1-10">1–10</option>
+									<option value="11-50">11–50</option>
+									<option value="51-200">51–200</option>
+									<option value="201+">201+</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="field field-full">
+							<label for="contact-additional">Anything else we should know? <span class="optional">(optional)</span></label>
+							<textarea id="contact-additional" name="additional_context" rows="3"></textarea>
+						</div>
+
+						<div class="consent-group">
+							<label class="consent-item">
+								<input type="checkbox" id="pilot-interest-1" name="pilot_interest" value="yes">
+								<span>I would be interested in discussing a bounded Frictera pilot if the workflow appears suitable.</span>
+							</label>
+							<label class="consent-item">
+								<input type="checkbox" id="pilot-contact-opt-in-1" name="pilot_contact_opt_in" value="yes">
+								<span>I am happy for Frictera to contact me about future pilot availability.</span>
+							</label>
+						</div>
+
+						<div class="call-scheduling-gate">
+							<p><strong>Arrange a Friction Review</strong> — we will reply by email to find a time that works.</p>
+						</div>
+					</fieldset>
+
+					<div class="intake-actions">
+						<button type="button" class="btn btn-secondary intake-prev">Back</button>
+						<button type="button" class="btn btn-primary intake-next">Continue</button>
+						<button type="submit" class="btn btn-primary intake-submit is-hidden">Request a Friction Review</button>
+					</div>
+
+						<div class="scheduling-surface" aria-live="polite" aria-atomic="true" hidden>
+							<div class="scheduling-intro">
+								<h2>Choose a time for your Friction Review</h2>
+								<p>A 20-minute conversation about the workflow you described. All times are shown in your local timezone.</p>
+							</div>
+							<div class="scheduling-state scheduling-loading">
+								<p>Finding available times…</p>
+							</div>
+							<div class="scheduling-state scheduling-error" hidden>
+								<p class="scheduling-message">We couldn’t load available times right now. We will be in touch by email.</p>
+							</div>
+							<div class="scheduling-state scheduling-empty" hidden>
+								<p>There are no available slots in the next two weeks. We will email you with options.</p>
+							</div>
+							<div class="scheduling-state scheduling-slots" hidden>
+								<div class="scheduling-timezone">
+									<label for="scheduling-timezone">Timezone</label>
+									<select id="scheduling-timezone" class="scheduling-timezone-select"></select>
+								</div>
+								<ul class="scheduling-slot-list" role="listbox" aria-label="Available appointment times"></ul>
+								<p class="scheduling-confirm" hidden>Your Friction Review is confirmed. You will receive a calendar invitation shortly.</p>
+							</div>
+						</div>
+
+						<p class="intake-note">By submitting this form you agree to our <a href="/privacy/">Privacy Notice</a> and <a href="/terms/">Terms of Use</a>.</p>
+					</form>
+				<!-- /wp:html -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"className":"contact-secondary"} -->
+			<div class="wp-block-column contact-secondary">
+				<!-- wp:group {"className":"expectation-panel","layout":{"type":"constrained"}} -->
+				<div class="wp-block-group expectation-panel">
+					<!-- wp:heading {"level":2,"className":"expectation-heading"} -->
+					<h2 class="expectation-heading">What happens next</h2>
+					<!-- /wp:heading -->
+
+					<!-- wp:list {"className":"expectation-list"} -->
+					<ul class="expectation-list">
+						<li><span class="expectation-number">01</span><span class="expectation-label">Submit your context</span></li>
+						<li><span class="expectation-number">02</span><span class="expectation-label">We review it</span></li>
+						<li><span class="expectation-number">03</span><span class="expectation-label">Arrange a review</span></li>
+					</ul>
+					<!-- /wp:list -->
+
+					<!-- wp:group {"className":"expectation-contact","layout":{"type":"constrained"}} -->
+					<div class="wp-block-group expectation-contact">
+						<!-- wp:heading {"level":3} -->
+						<h3>Response time</h3>
+						<!-- /wp:heading -->
+						<!-- wp:paragraph -->
+						<p>Within two business days.</p>
+						<!-- /wp:paragraph -->
+						<!-- wp:paragraph -->
+						<p><a href="mailto:support@frictera.com">support@frictera.com</a></p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+
+					<!-- wp:group {"className":"expectation-contact","layout":{"type":"constrained"}} -->
+					<div class="wp-block-group expectation-contact">
+						<!-- wp:heading {"level":3} -->
+						<h3>Research participants</h3>
+						<!-- /wp:heading -->
+						<!-- wp:paragraph -->
+						<p>Taking part in research? Email <a href="mailto:research@frictera.com">research@frictera.com</a>.</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:group -->
+			</div>
+			<!-- /wp:column -->
+		</div>
+		<!-- /wp:columns -->
+	</div>
+	<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

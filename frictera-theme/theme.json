@@ -1,0 +1,163 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "1280px",
+      "wideSize": "1440px"
+    },
+    "color": {
+      "palette": [
+        {
+          "slug": "frictera-ink",
+          "color": "#0B1220",
+          "name": "Frictera Ink"
+        },
+        {
+          "slug": "frictera-teal",
+          "color": "#087F78",
+          "name": "Frictera Teal"
+        },
+        {
+          "slug": "frictera-signal",
+          "color": "#0FA89D",
+          "name": "Frictera Signal"
+        },
+        {
+          "slug": "frictera-evidence",
+          "color": "#45D6CD",
+          "name": "Frictera Evidence"
+        },
+        {
+          "slug": "frictera-cloud",
+          "color": "#F5F7F8",
+          "name": "Frictera Cloud"
+        },
+        {
+          "slug": "frictera-white",
+          "color": "#FFFFFF",
+          "name": "Frictera White"
+        },
+        {
+          "slug": "frictera-graphite",
+          "color": "#52606D",
+          "name": "Frictera Graphite"
+        },
+        {
+          "slug": "frictera-border",
+          "color": "#DDE4E8",
+          "name": "Frictera Border"
+        }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+          "slug": "system",
+          "name": "System"
+        }
+      ],
+      "fontSizes": [
+        {
+          "slug": "small",
+          "size": "0.875rem",
+          "name": "Small"
+        },
+        {
+          "slug": "medium",
+          "size": "1.125rem",
+          "name": "Medium"
+        },
+        {
+          "slug": "large",
+          "size": "1.5rem",
+          "name": "Large"
+        },
+        {
+          "slug": "x-large",
+          "size": "2.25rem",
+          "name": "Extra Large"
+        },
+        {
+          "slug": "xx-large",
+          "size": "3rem",
+          "name": "Huge"
+        }
+      ]
+    },
+    "spacing": {
+      "spacingScale": {
+        "operator": "*",
+        "increment": 1.5,
+        "steps": 7,
+        "mediumStep": 1.5,
+        "unit": "rem"
+      }
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--frictera-cloud)",
+      "text": "var(--wp--preset--color--frictera-ink)"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--system)",
+      "fontSize": "var(--wp--preset--font-size--medium)",
+      "lineHeight": "1.6"
+    },
+    "elements": {
+      "link": {
+        "color": {
+          "text": "var(--wp--preset--color--frictera-teal)"
+        }
+      },
+      "button": {
+        "color": {
+          "background": "var(--wp--preset--color--frictera-teal)",
+          "text": "var(--wp--preset--color--frictera-white)"
+        }
+      }
+    }
+  },
+  "templateParts": [
+    {
+      "name": "header",
+      "title": "Header",
+      "area": "header"
+    },
+    {
+      "name": "footer",
+      "title": "Footer",
+      "area": "footer"
+    }
+  ],
+  "customTemplates": [
+    {
+      "name": "page-home",
+      "title": "Homepage",
+      "postTypes": ["page"]
+    },
+    {
+      "name": "page-privacy",
+      "title": "Privacy Page",
+      "postTypes": ["page"]
+    },
+    {
+      "name": "page-terms",
+      "title": "Terms Page",
+      "postTypes": ["page"]
+    },
+    {
+      "name": "page-research",
+      "title": "Research Information Page",
+      "postTypes": ["page"]
+    },
+    {
+      "name": "page-contact",
+      "title": "Contact Page",
+      "postTypes": ["page"]
+    }
+  ]
+}

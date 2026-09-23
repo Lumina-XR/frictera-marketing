@@ -1,0 +1,557 @@
+(function () {
+  'use strict';
+
+  var SELECTOR = '.guided-intake';
+
+  function ensureSecurityFields(form) {
+    var nonce = window.fricteraIntake && window.fricteraIntake.nonce ? window.fricteraIntake.nonce : '';
+    if (!form.querySelector('input[name="_wpnonce"]')) {
+      var nonceInput = document.createElement('input');
+      nonceInput.type = 'hidden';
+      nonceInput.name = '_wpnonce';
+      nonceInput.value = nonce;
+      form.appendChild(nonceInput);
+    }
+    if (!form.querySelector('input[name="frictera_website"]')) {
+      var hp = document.createElement('input');
+      hp.type = 'hidden';
+      hp.name = 'frictera_website';
+      hp.value = '';
+      hp.setAttribute('tabindex', '-1');
+      hp.setAttribute('autocomplete', 'off');
+      hp.setAttribute('aria-hidden', 'true');
+      form.appendChild(hp);
+    }
+  }
+
+  function getRestUrl(form) {
+    var base = window.fricteraIntake && window.fricteraIntake.restUrl ? window.fricteraIntake.restUrl : '';
+    var endpoint = form.getAttribute('data-rest-endpoint') || '';
+    if (!base || !endpoint) return null;
+    return base.replace(/\/$/, '') + '/' + endpoint.replace(/^\//, '');
+  }
+
+  function setLoading(form, isLoading) {
+    form.classList.toggle('is-loading', isLoading);
+    var buttons = form.querySelectorAll('button[type="submit"], .intake-next, .intake-prev');
+    buttons.forEach(function (btn) {
+      btn.disabled = isLoading;
+    });
+    var submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.dataset.originalText = submitBtn.dataset.originalText || submitBtn.textContent;
+      submitBtn.textContent = isLoading ? 'Submitting…' : submitBtn.dataset.originalText;
+    }
+  }
+
+  function showStatus(form, type, message, focus) {
+    var status = form.querySelector('.intake-status');
+    if (!status) return;
+    status.className = 'intake-status is-' + type;
+    status.innerHTML = '<p>' + escapeHtml(message) + '</p>';
+    if (focus !== false) {
+      status.setAttribute('tabindex', '-1');
+      status.focus();
+    }
+  }
+
+  function clearStatus(form) {
+    var status = form.querySelector('.intake-status');
+    if (!status) return;
+    status.className = 'intake-status';
+    status.innerHTML = '';
+    status.removeAttribute('tabindex');
+  }
+
+  function escapeHtml(text) {
+    var div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  function mapFieldToInputName(field) {
+    var map = {
+      'contact.name': 'name',
+      'contact.workEmail': 'email',
+      'contact.company': 'company',
+      'contact.role': 'role',
+      'contact.teamSize': 'team-size',
+      'additionalContext': 'additional_context',
+      'businessType': 'business_type',
+      'businessTypeOther': 'business_type_other',
+      'urgency': 'urgency',
+      'signals.frictions': 'frictions[]',
+      'frictionsOther': 'frictions_other',
+      'signals.teamLanguages': 'team_language',
+      'signals.clientLanguages': 'client_languages[]',
+      'clientLanguagesOther': 'client_languages_other',
+      'signals.languageFrictions': 'language_frictions[]',
+      'signals.translationProcesses': 'translation_process[]',
+      'translationProcessesOther': 'translation_process_other',
+      'signals.clientMarkets': 'client_markets[]',
+      'clientMarketsOther': 'client_markets_other',
+      'signals.internationalFrictions': 'international_frictions[]',
+      'internationalFrictionsOther': 'international_frictions_other',
+      'signals.outOfHoursProcess': 'out_of_hours_process',
+      'signals.systems': 'systems[]',
+      'systemsOther': 'systems_other',
+      'signals.routingMethods': 'routing_method[]',
+      'routingMethodsOther': 'routing_method_other',
+      'signals.handoffFrictions': 'handoff_frictions[]',
+      'handoffFrictionsOther': 'handoff_frictions_other',
+      'signals.desiredOutcomes': 'desired_outcomes[]',
+      'desiredOutcomesOther': 'desired_outcomes_other',
+      'intent.engagementIntents': 'engagement_intent[]',
+      'research_role': 'research_role',
+      'research_next_step': 'research_next_step',
+      'signals.researchTopics': 'research_topics[]',
+      'researchTopicsOther': 'research_topics_other'
+    };
+    return map[field] || '';
+  }
+
+  function applyValidationErrors(form, errors) {
+    if (!Array.isArray(errors)) return;
+    var firstInvalid = null;
+    errors.forEach(function (error) {
+      var name = mapFieldToInputName(error.field || '');
+      if (!name) return;
+      var input = form.querySelector('input[name="' + name + '"], textarea[name="' + name + '"], select[name="' + name + '"]');
+      if (!input) return;
+      input.classList.add('is-invalid');
+      if (!firstInvalid) firstInvalid = input;
+    });
+    if (firstInvalid) {
+      var step = firstInvalid.closest('.intake-step');
+      if (step) {
+        var stepIndex = Array.from(form.querySelectorAll('.intake-step')).indexOf(step);
+        if (typeof form._intakeGoTo === 'function') {
+          form._intakeGoTo(stepIndex);
+        }
+        var msg = step.querySelector('.intake-error');
+        if (!msg) {
+          msg = document.createElement('p');
+          msg.className = 'intake-error';
+          step.appendChild(msg);
+        }
+        msg.textContent = 'Please review the highlighted field and try again.';
+        firstInvalid.focus();
+      }
+    }
+  }
+
+  function submitFormAsync(form, source) {
+    ensureSecurityFields(form);
+    var url = getRestUrl(form);
+    if (!url) {
+      showStatus(form, 'error', 'This form is not configured for submission. Please try again later.');
+      return;
+    }
+
+    if (window.fricteraIntake && window.fricteraIntake.enabled === false) {
+      showStatus(form, 'error', 'Submissions are not yet enabled. Please try again later.');
+      return;
+    }
+
+    clearStatus(form);
+    setLoading(form, true);
+
+    var data = new FormData(form);
+    fetch(url, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(function (response) {
+        setLoading(form, false);
+        if (response.status === 429) {
+          showStatus(form, 'error', 'We are receiving a high volume of submissions. Please try again in a few minutes.');
+          return;
+        }
+        if (response.status >= 500 || response.status === 0) {
+          showStatus(form, 'error', 'We couldn\'t submit this right now. Please try again shortly.');
+          return;
+        }
+        return response.json().then(function (body) {
+          if (response.status === 201 && body.accepted) {
+            showStatus(form, 'success', body.message || 'Thank you. Your submission has been received.');
+            form.reset();
+            form.querySelectorAll('.is-selected').forEach(function (card) {
+              card.classList.remove('is-selected');
+              card.setAttribute('aria-checked', 'false');
+            });
+            form.querySelectorAll('[data-reveal-for].is-visible').forEach(function (reveal) {
+              reveal.classList.remove('is-visible');
+            });
+            if (typeof form._intakeGoTo === 'function') {
+              form._intakeGoTo(0);
+            }
+            var submitBtn = form.querySelector('button[type="submit"]');
+            if (submitBtn) submitBtn.disabled = true;
+            if (body.schedulingEligible && body.schedulingIntakeReference && typeof form._onSchedulingEligible === 'function') {
+              form._onSchedulingEligible(body.schedulingIntakeReference);
+            }
+          } else if (response.status === 400 && body.errors) {
+            showStatus(form, 'error', 'Please review the form and try again.', false);
+            applyValidationErrors(form, body.errors);
+          } else {
+            showStatus(form, 'error', 'We couldn\'t submit this right now. Please try again shortly.');
+          }
+        });
+      })
+      .catch(function () {
+        setLoading(form, false);
+        showStatus(form, 'error', 'We couldn\'t submit this right now. Please check your connection and try again.');
+      });
+  }
+
+  function initIntake(form) {
+    if (!form) return;
+
+    var steps = Array.from(form.querySelectorAll('.intake-step'));
+    var progressCurrent = form.querySelector('.intake-progress-current');
+    var progressTotal = form.querySelector('.intake-progress-total');
+    var progressFill = form.querySelector('.intake-progress-fill');
+    var prevBtn = form.querySelector('.intake-prev');
+    var nextBtn = form.querySelector('.intake-next');
+    var submitBtn = form.querySelector('.intake-submit');
+    var current = 0;
+
+    function updateProgress() {
+      if (progressCurrent) progressCurrent.textContent = String(current + 1);
+      if (progressTotal) progressTotal.textContent = String(steps.length);
+      if (progressFill) {
+        progressFill.style.width = String(((current + 1) / steps.length) * 100) + '%';
+      }
+      steps.forEach(function (step, index) {
+        step.classList.toggle('is-active', index === current);
+        step.setAttribute('aria-hidden', String(index !== current));
+      });
+      if (prevBtn) {
+        prevBtn.disabled = current === 0;
+        prevBtn.classList.toggle('is-hidden', steps.length <= 1);
+      }
+      if (nextBtn) nextBtn.classList.toggle('is-hidden', current === steps.length - 1);
+      if (submitBtn) submitBtn.classList.toggle('is-hidden', current !== steps.length - 1);
+      var active = steps[current];
+      if (active) {
+        var firstFocus = active.querySelector('input, textarea, select, button');
+        if (firstFocus && typeof firstFocus.focus === 'function') {
+          try { firstFocus.focus({ preventScroll: true }); } catch (_) {}
+        }
+      }
+    }
+
+    function validateStep(step) {
+      var invalid = [];
+      var error = step.querySelector('.intake-error');
+      if (error) error.remove();
+
+      var requiredGroups = step.querySelectorAll('[data-required-group]');
+      requiredGroups.forEach(function (group) {
+        var name = group.dataset.requiredGroup;
+        var checked = step.querySelector('input[name="' + name + '"]:checked') ||
+                      step.querySelector('input[name="' + name + '[]"]:checked');
+        if (!checked) {
+          invalid.push(group);
+          group.classList.add('is-invalid');
+        } else {
+          group.classList.remove('is-invalid');
+        }
+      });
+
+      var requiredFields = step.querySelectorAll('input[required], textarea[required], select[required]');
+      requiredFields.forEach(function (field) {
+        var isCheckbox = field.type === 'checkbox' || field.type === 'radio';
+        var valid = isCheckbox ? field.checked : field.value.trim().length > 0;
+        if (!valid) {
+          invalid.push(field);
+          field.classList.add('is-invalid');
+        } else {
+          field.classList.remove('is-invalid');
+        }
+      });
+
+      if (invalid.length > 0) {
+        var msg = document.createElement('p');
+        msg.className = 'intake-error';
+        msg.textContent = 'Please complete the required selection before continuing.';
+        step.appendChild(msg);
+      }
+
+      return invalid.length === 0;
+    }
+
+    function clearValidation(step) {
+      var error = step.querySelector('.intake-error');
+      if (error) error.remove();
+      step.querySelectorAll('.is-invalid').forEach(function (el) {
+        el.classList.remove('is-invalid');
+      });
+    }
+
+    function goTo(index) {
+      if (index < 0 || index >= steps.length) return;
+      clearValidation(steps[current]);
+      current = index;
+      updateProgress();
+    }
+
+    // Expose for validation-error focus handling.
+    form._intakeGoTo = goTo;
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        goTo(current - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (validateStep(steps[current])) {
+          goTo(current + 1);
+        }
+      });
+    }
+
+    function updateCardState(card, input) {
+      card.classList.toggle('is-selected', input.checked);
+      card.setAttribute('aria-checked', String(input.checked));
+    }
+
+    // Card selection with reveal inputs
+    form.querySelectorAll('.option-card').forEach(function (card) {
+      var input = card.querySelector('input');
+      if (!input) return;
+
+      card.addEventListener('click', function (e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        if (input.type === 'checkbox') {
+          input.checked = !input.checked;
+        } else if (input.type === 'radio') {
+          input.checked = true;
+        }
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+      });
+
+      input.addEventListener('change', function () {
+        if (input.type === 'radio') {
+          var groupName = input.name;
+          form.querySelectorAll('input[name="' + groupName + '"]').forEach(function (radio) {
+            var siblingCard = radio.closest('.option-card');
+            if (siblingCard) updateCardState(siblingCard, radio);
+            var siblingReveal = siblingCard ? siblingCard.querySelector('[data-reveal-for]') : null;
+            if (siblingReveal) siblingReveal.classList.toggle('is-visible', radio.checked);
+          });
+        } else {
+          updateCardState(card, input);
+          var reveal = card.querySelector('[data-reveal-for]');
+          if (reveal) reveal.classList.toggle('is-visible', input.checked);
+        }
+      });
+
+      input.addEventListener('focus', function () {
+        card.classList.add('has-focus');
+      });
+      input.addEventListener('blur', function () {
+        card.classList.remove('has-focus');
+      });
+
+      updateCardState(card, input);
+      var reveal = card.querySelector('[data-reveal-for]');
+      if (reveal) reveal.classList.toggle('is-visible', input.checked);
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!validateStep(steps[current])) {
+        return;
+      }
+      var source = form.getAttribute('data-intake') === 'research' ? 'website-research' : 'website-contact';
+      submitFormAsync(form, source);
+    });
+
+    updateProgress();
+
+    if (form.getAttribute('data-intake') === 'contact' && window.fricteraIntake && window.fricteraIntake.scheduling && window.fricteraIntake.scheduling.enabled) {
+      initSchedulingSurface(form);
+    }
+  }
+
+  function initSchedulingSurface(form) {
+    var surface = form.querySelector('.scheduling-surface');
+    if (!surface) return;
+
+    var loading = surface.querySelector('.scheduling-loading');
+    var error = surface.querySelector('.scheduling-error');
+    var empty = surface.querySelector('.scheduling-empty');
+    var slotsContainer = surface.querySelector('.scheduling-slots');
+    var slotList = surface.querySelector('.scheduling-slot-list');
+    var timezoneSelect = surface.querySelector('.scheduling-timezone-select');
+    var confirmMsg = surface.querySelector('.scheduling-confirm');
+    var slots = [];
+    var currentToken = '';
+
+    function setVisible(state) {
+      [loading, error, empty, slotsContainer].forEach(function (el) {
+        if (!el) return;
+        el.hidden = el !== state;
+      });
+    }
+
+    function formatTime(isoString, timezone) {
+      try {
+        var d = new Date(isoString);
+        return new Intl.DateTimeFormat('en-GB', {
+          weekday: 'short',
+          day: 'numeric',
+          month: 'short',
+          hour: '2-digit',
+          minute: '2-digit',
+          timeZone: timezone,
+          timeZoneName: 'short'
+        }).format(d);
+      } catch (_) {
+        return isoString;
+      }
+    }
+
+    function renderSlots() {
+      if (!slotList) return;
+      slotList.innerHTML = '';
+      var timezone = timezoneSelect ? timezoneSelect.value : 'UTC';
+      var maxSlots = 12;
+      slots.slice(0, maxSlots).forEach(function (slot) {
+        var li = document.createElement('li');
+        li.setAttribute('role', 'option');
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'btn btn-secondary scheduling-slot';
+        btn.textContent = formatTime(slot.time, timezone);
+        btn.addEventListener('click', function () {
+          bookSlot(slot.time, timezone, btn);
+        });
+        li.appendChild(btn);
+        slotList.appendChild(li);
+      });
+    }
+
+    function populateTimezones() {
+      if (!timezoneSelect) return;
+      var zones = Intl.supportedValuesOf ? Intl.supportedValuesOf('timeZone') : ['UTC'];
+      var userZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+      timezoneSelect.innerHTML = '';
+      zones.forEach(function (zone) {
+        var opt = document.createElement('option');
+        opt.value = zone;
+        opt.textContent = zone.replace(/_/g, ' ');
+        if (zone === userZone) opt.selected = true;
+        timezoneSelect.appendChild(opt);
+      });
+      timezoneSelect.addEventListener('change', function () {
+        loadSlots(currentToken, timezoneSelect.value);
+      });
+    }
+
+    function loadSlots(intakeReference, timezone) {
+      currentToken = intakeReference;
+      surface.hidden = false;
+      setVisible(loading);
+
+      var url = window.fricteraIntake.scheduling.restUrl + 'slots';
+
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          intakeReference: intakeReference,
+          timezone: timezone || 'UTC'
+        })
+      })
+        .then(function (res) {
+          return res.json().then(function (body) {
+            return { ok: res.ok, status: res.status, body: body };
+          });
+        })
+        .then(function (result) {
+          var body = result.body || {};
+          slots = body.slots || [];
+
+          if (!result.ok) {
+            setVisible(error);
+            if (error) {
+              var errorMessage = error.querySelector('.scheduling-message');
+              if (errorMessage) {
+                errorMessage.textContent =
+                  body.message ||
+                  'We couldn\'t load available times right now. We will be in touch by email.';
+              }
+            }
+            return;
+          }
+
+          if (!body.available || slots.length === 0) {
+            setVisible(empty);
+            return;
+          }
+
+          setVisible(slotsContainer);
+
+          if (timezoneSelect && timezone) {
+            timezoneSelect.value = timezone;
+          }
+
+          renderSlots();
+        })
+        .catch(function () {
+          setVisible(error);
+        });
+    }
+
+    function bookSlot(time, timezone, btn) {
+      /*
+       * Native booking authority is intentionally not open yet.
+       * Availability may be displayed, but no booking mutation
+       * is permitted from this presentation lane.
+       */
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Booking not yet available';
+      }
+
+      setVisible(error);
+
+      if (error) {
+        var msg = error.querySelector('.scheduling-message');
+        if (msg) {
+          msg.textContent =
+            'Online booking is not available yet. We will be in touch by email.';
+        }
+      }
+    }
+
+    populateTimezones();
+
+    form._onSchedulingEligible = function (intakeReference) {
+      loadSlots(
+        intakeReference,
+        timezoneSelect ? timezoneSelect.value : 'UTC'
+      );
+    };
+  }
+
+  function initAll() {
+    document.querySelectorAll(SELECTOR).forEach(initIntake);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+  } else {
+    initAll();
+  }
+})();

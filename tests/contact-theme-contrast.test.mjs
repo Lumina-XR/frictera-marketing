@@ -141,7 +141,7 @@ test('sitewide surfaces, evidence, workflow, footer and skip link', () => {
   assert.equal(declarations(block('html[data-theme="light"] .evidence-note'))['color'], 'var(--frictera-text-muted)');
   assert.equal(declarations(block('html[data-theme="light"] .evidence-number'))['color'], 'var(--frictera-accent-text) !important');
   assert.equal(declarations(block('.evidence-flag'))['color'], 'var(--frictera-accent-text)');
-  assert.equal(declarations(block('.theme-toggle-button'))['color'], 'var(--frictera-text-muted)');
+  assert.equal(declarations(block('.theme-toggle-button'))['color'], 'var(--frictera-text)');
   assert.equal(declarations(block('.site-footer a,\n.site-footer a:visited'))['color'], 'var(--frictera-signal)');
   assert.equal(declarations(block('.footer-col a:visited'))['color'], 'rgba(255, 255, 255, 0.7)');
   const visited = declarations(block('.legal-content a,\n.legal-content a:visited,\n.research-content a,\n.research-content a:visited,\n.contact-content a,\n.contact-content a:visited'));
@@ -233,4 +233,34 @@ test('contact dark mode canvas and what-happens-next follow the theme', () => {
   assert.ok(contrast(dark['--frictera-border'], card) >= 3);
   assert.ok(luminance(canvas) < 0.05);
   assert.ok(luminance(card) < 0.05);
+});
+
+test('theme controls and booking CTA stay distinguishable', () => {
+  assert.equal(declarations(block('.theme-toggle-button')).color, 'var(--frictera-text)');
+  assert.equal(declarations(block('.theme-toggle-button.is-active')).background, 'var(--frictera-white)');
+  assert.equal(declarations(block('.theme-toggle-button.is-active')).color, 'var(--frictera-teal)');
+  assert.equal(declarations(block('html[data-theme="dark"] .theme-toggle-button.is-active')).background, 'var(--frictera-surface-raised)');
+  assert.equal(declarations(block('html[data-theme="dark"] .theme-toggle-button.is-active')).color, 'var(--frictera-evidence)');
+  assert.match(css, /@media \(min-width: 768px\) \{\s*\.theme-toggle-label \{\s*display: inline;/);
+  const cta = declarations(block('.site-header .header-inner .header-controls .wp-block-buttons > .wp-block-button.nav-cta > .wp-block-button__link'));
+  assert.equal(cta.background, 'var(--frictera-teal)');
+  assert.equal(cta.color, 'var(--frictera-white)');
+  const ctaHover = declarations(block('.site-header .header-inner .header-controls .wp-block-buttons > .wp-block-button.nav-cta > .wp-block-button__link:hover'));
+  const ctaHoverDark = declarations(block('html[data-theme="dark"] .site-header .header-inner .header-controls .wp-block-buttons > .wp-block-button.nav-cta > .wp-block-button__link:hover'));
+  assert.equal(ctaHover.background, 'var(--frictera-ink)');
+  assert.equal(ctaHover.color, 'var(--frictera-white)');
+  assert.equal(ctaHoverDark.background, 'var(--frictera-white)');
+  assert.equal(ctaHoverDark.color, 'var(--frictera-ink)');
+  assert.ok(contrast('#FFFFFF', '#087F78') >= 4.5);
+  assert.ok(contrast('#FFFFFF', '#0B1220') >= 4.5);
+  assert.ok(contrast('#0B1220', '#FFFFFF') >= 4.5);
+  assert.ok(contrast(resolve(light['--frictera-text'], light), '#FFFFFF') >= 4.5);
+  assert.ok(contrast(dark['--frictera-text'], dark['--frictera-surface']) >= 4.5);
+  assert.ok(contrast(dark['--frictera-evidence'], dark['--frictera-surface-raised']) >= 3);
+  const booking = declarations(block('html[data-theme="dark"] .contact-card'));
+  assert.equal(booking.background, 'var(--frictera-surface)');
+  assert.equal(booking.color, 'var(--frictera-text)');
+  assert.equal(booking['border-color'], 'var(--frictera-border)');
+  assert.ok(contrast(dark['--frictera-text'], dark['--frictera-surface']) >= 4.5);
+  assert.ok(contrast(dark['--frictera-border'], dark['--frictera-surface']) >= 3);
 });

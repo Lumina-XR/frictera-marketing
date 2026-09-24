@@ -390,6 +390,24 @@ html[data-theme="dark"] .nav-cta:hover {
     white-space: nowrap !important;
     word-break: normal !important;
     overflow-wrap: normal !important;
+    background: var(--frictera-teal);
+    color: var(--frictera-white);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .site-header .header-inner .header-controls .wp-block-buttons > .wp-block-button.nav-cta > .wp-block-button__link:hover {
+    background: var(--frictera-ink);
+    color: var(--frictera-white);
+  }
+
+  html[data-theme="dark"] .site-header .header-inner .header-controls .wp-block-buttons > .wp-block-button.nav-cta > .wp-block-button__link:hover {
+    background: var(--frictera-white);
+    color: var(--frictera-ink);
   }
 }
 
@@ -1448,8 +1466,9 @@ html[data-theme="dark"] .pilot-card {
 }
 
 html[data-theme="dark"] .contact-card {
-  background: linear-gradient(180deg, rgba(18, 33, 49, 0.9) 0%, rgba(13, 25, 38, 0.95) 100%);
-  border-color: rgba(180, 203, 215, 0.12);
+  background: var(--frictera-surface);
+  color: var(--frictera-text);
+  border-color: var(--frictera-border);
 }
 
 .form-row {
@@ -1673,7 +1692,7 @@ html[data-theme="dark"] .field select {
   background: var(--frictera-glass);
   backdrop-filter: blur(var(--frictera-glass-blur));
   -webkit-backdrop-filter: blur(var(--frictera-glass-blur));
-  border: 1px solid var(--frictera-glass-border);
+  border: 1px solid var(--frictera-border);
   border-radius: var(--radius-md);
   padding: 0.25rem;
   gap: 0.25rem;
@@ -1701,7 +1720,7 @@ html[data-theme="dark"] .theme-toggle {
   border: none;
   border-radius: calc(var(--radius-md) - 2px);
   background: transparent;
-  color: var(--frictera-text-muted);
+  color: var(--frictera-text);
   font-size: 0.8125rem;
   font-weight: 600;
   cursor: pointer;
@@ -1739,7 +1758,7 @@ html[data-theme="dark"] .theme-toggle-button.is-active {
   display: none;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 768px) {
   .theme-toggle-label {
     display: inline;
   }

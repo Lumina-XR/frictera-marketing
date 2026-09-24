@@ -19,7 +19,7 @@ Text Domain: frictera
   --frictera-cloud: #F5F7F8;
   --frictera-white: #FFFFFF;
   --frictera-graphite: #52606D;
-  --frictera-border: #DDE4E8;
+  --frictera-border: #7E8C98;
   --header-height: 4.5rem;
   --max-width: 90rem;
   --radius-sm: 0.375rem;
@@ -32,6 +32,9 @@ Text Domain: frictera
   --frictera-surface-soft: var(--frictera-cloud);
   --frictera-text: var(--frictera-ink);
   --frictera-text-muted: var(--frictera-graphite);
+  --frictera-action: var(--frictera-teal);
+  --frictera-accent-text: #066B66;
+  --frictera-focus: var(--frictera-teal);
   --frictera-border-subtle: rgba(11, 18, 32, 0.08);
   --frictera-glass: rgba(255, 255, 255, 0.72);
   --frictera-glass-strong: rgba(255, 255, 255, 0.88);
@@ -76,7 +79,10 @@ html[data-theme="dark"] {
   --frictera-surface-soft: #162534;
   --frictera-text: #F4F7F8;
   --frictera-text-muted: #A9B6C2;
-  --frictera-border: rgba(180, 203, 215, 0.14);
+  --frictera-action: #0FA89D;
+  --frictera-accent-text: #0FA89D;
+  --frictera-focus: #45D6CD;
+  --frictera-border: #8AA0AE;
   --frictera-border-subtle: rgba(180, 203, 215, 0.08);
   --frictera-glass: rgba(18, 33, 49, 0.70);
   --frictera-glass-strong: rgba(18, 33, 49, 0.86);
@@ -102,8 +108,29 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 2px solid var(--frictera-evidence);
+  outline: 2px solid var(--frictera-focus);
   outline-offset: 2px;
+}
+
+a.skip-link:focus,
+a.skip-link:focus-visible {
+  background: var(--frictera-surface);
+  color: var(--frictera-text);
+  border: 2px solid var(--frictera-focus);
+  outline: 2px solid var(--frictera-focus);
+  outline-offset: 2px;
+  clip: auto;
+  clip-path: none;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  padding: 0.75rem 1rem;
+  position: fixed;
+  left: 0.5rem;
+  top: 0.5rem;
+  z-index: 100000;
+  text-decoration: none;
 }
 
 /* Typography Scale */
@@ -136,14 +163,14 @@ h3 {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--frictera-teal);
+  color: var(--frictera-action);
   margin-bottom: var(--space-sm);
 }
 
 .lead {
   font-size: var(--text-xl);
   line-height: 1.6;
-  color: var(--frictera-graphite);
+  color: var(--frictera-text-muted);
 }
 
 /* Body offset for fixed header */
@@ -404,8 +431,8 @@ html[data-theme="dark"] .nav-cta:hover {
 
 .btn-secondary {
   background: transparent;
-  color: var(--frictera-teal);
-  border-color: var(--frictera-teal);
+  color: var(--frictera-action);
+  border-color: var(--frictera-action);
 }
 
 .btn-secondary:hover {
@@ -435,6 +462,11 @@ html[data-theme="light"] .btn-light {
 html[data-theme="light"] .btn-light:hover {
   background: var(--frictera-cloud);
   border-color: var(--frictera-teal);
+}
+
+html[data-theme="dark"] .btn-light {
+  background: #fff;
+  color: var(--frictera-teal);
 }
 
 .btn-lg {
@@ -474,7 +506,7 @@ html[data-theme="light"] .btn-light:hover {
 
 .section-heading p {
   font-size: var(--text-lg);
-  color: var(--frictera-graphite);
+  color: var(--frictera-text-muted);
   line-height: 1.7;
   margin: 0;
 }
@@ -528,7 +560,7 @@ html[data-theme="dark"] .hero {
 
 .hero h1 {
   margin-bottom: var(--space-md);
-  color: var(--frictera-ink);
+  color: var(--frictera-text);
 }
 
 html[data-theme="dark"] .hero h1 {
@@ -536,12 +568,12 @@ html[data-theme="dark"] .hero h1 {
 }
 
 .hero-accent {
-  color: var(--frictera-teal);
+  color: var(--frictera-action);
 }
 
 .hero-lead {
   font-size: var(--text-xl);
-  color: var(--frictera-graphite);
+  color: var(--frictera-text-muted);
   line-height: 1.6;
   margin-bottom: var(--space-lg);
   max-width: 40rem;
@@ -564,7 +596,7 @@ html[data-theme="dark"] .hero-lead {
   gap: 0.625rem;
   font-size: var(--text-sm);
   font-weight: 600;
-  color: var(--frictera-teal);
+  color: var(--frictera-accent-text);
   background: rgba(8, 127, 120, 0.08);
   padding: 0.5rem 1rem;
   border-radius: 999px;
@@ -630,15 +662,15 @@ html[data-theme="dark"] .hero-diagram {
 }
 
 .diagram-node.input {
-  background: var(--frictera-white);
+  background: var(--frictera-surface);
   border: 1px solid var(--frictera-border);
-  color: var(--frictera-graphite);
+  color: var(--frictera-text-muted);
 }
 
 .diagram-node.friction {
   background: rgba(8, 127, 120, 0.1);
   border: 2px solid var(--frictera-teal);
-  color: var(--frictera-teal);
+  color: var(--frictera-accent-text);
 }
 
 .diagram-node.governed {
@@ -649,11 +681,11 @@ html[data-theme="dark"] .hero-diagram {
 .diagram-node.outcome {
   background: rgba(69, 214, 205, 0.15);
   border: 2px solid var(--frictera-evidence);
-  color: var(--frictera-teal);
+  color: var(--frictera-accent-text);
 }
 
 .diagram-arrow {
-  color: var(--frictera-evidence);
+  color: var(--frictera-teal);
   font-size: 1.25rem;
   font-weight: 700;
 }
@@ -796,7 +828,7 @@ html[data-theme="dark"] .workflow-step {
   font-size: var(--text-lg);
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: var(--frictera-ink);
+  color: var(--frictera-text);
 }
 
 .workflow-step.highlight {
@@ -815,7 +847,7 @@ html[data-theme="light"] .workflow-step.highlight {
 }
 
 .workflow-step.highlight .workflow-label {
-  color: var(--frictera-teal);
+  color: var(--frictera-action);
 }
 
 .workflow-step.human {
@@ -911,7 +943,7 @@ html[data-theme="light"] .workflow-step.highlight {
 
 .card p,
 .card li {
-  color: var(--frictera-graphite);
+  color: var(--frictera-text-muted);
   font-size: var(--text-base);
 }
 
@@ -1006,7 +1038,7 @@ html[data-theme="dark"] .industry-card:hover {
 
 .status-available {
   background: rgba(8, 127, 120, 0.1);
-  color: var(--frictera-teal);
+  color: var(--frictera-accent-text);
 }
 
 .status-dev {
@@ -1040,6 +1072,10 @@ html[data-theme="dark"] .status-dev {
   color: var(--frictera-text-muted);
   font-size: var(--text-lg);
   line-height: 1.7;
+}
+
+.property-section p.text-center {
+  color: var(--frictera-text-muted) !important;
 }
 
 .capabilities-grid {
@@ -1272,6 +1308,18 @@ html[data-theme="light"] .evidence-panel {
   box-shadow: none;
 }
 
+html[data-theme="light"] .evidence-number {
+  color: var(--frictera-accent-text) !important;
+}
+
+html[data-theme="light"] .evidence-label {
+  color: var(--frictera-text);
+}
+
+html[data-theme="light"] .evidence-note {
+  color: var(--frictera-text-muted);
+}
+
 .evidence-number {
   font-size: var(--text-5xl);
   font-weight: 800;
@@ -1300,7 +1348,7 @@ html[data-theme="light"] .evidence-panel {
   gap: 0.375rem;
   font-size: var(--text-xs);
   font-weight: 700;
-  color: var(--frictera-teal);
+  color: var(--frictera-accent-text);
   background: rgba(8, 127, 120, 0.2);
   padding: 0.25rem 0.625rem;
   border-radius: 999px;
@@ -1354,7 +1402,7 @@ html[data-theme="dark"] .pilot-card {
 .pilot-price {
   font-size: var(--text-6xl);
   font-weight: 800;
-  color: var(--frictera-teal);
+  color: var(--frictera-action);
   line-height: 1;
   margin: var(--space-sm) 0 var(--space-lg);
 }
@@ -1372,7 +1420,7 @@ html[data-theme="dark"] .pilot-card {
   max-width: 32rem;
   margin: 0 auto var(--space-xl);
   padding-left: 1.5rem;
-  color: var(--frictera-graphite);
+  color: var(--frictera-text-muted);
 }
 
 .pilot-scope li {
@@ -1450,21 +1498,22 @@ html[data-theme="dark"] .field input,
 html[data-theme="dark"] .field textarea,
 html[data-theme="dark"] .field select {
   background: rgba(7, 17, 29, 0.6);
-  border-color: rgba(180, 203, 215, 0.14);
-  color: var(--frictera-white);
+  border-color: var(--frictera-border);
+  color: var(--frictera-text);
 }
 
 .field input:focus,
 .field textarea:focus,
 .field select:focus {
-  outline: none;
+  outline: 2px solid var(--frictera-focus);
+  outline-offset: 2px;
   border-color: var(--frictera-teal);
   box-shadow: 0 0 0 3px rgba(8, 127, 120, 0.1);
 }
 
 .field input::placeholder,
 .field textarea::placeholder {
-  color: #94a3b8;
+  color: var(--frictera-text-muted);
 }
 
 .consent {
@@ -1472,7 +1521,7 @@ html[data-theme="dark"] .field select {
   align-items: flex-start;
   gap: 0.75rem;
   font-size: var(--text-sm);
-  color: var(--frictera-graphite);
+  color: var(--frictera-text-muted);
   margin-bottom: var(--space-lg);
   line-height: 1.5;
 }
@@ -1540,6 +1589,11 @@ html[data-theme="dark"] .field select {
   margin-bottom: 0.75rem;
 }
 
+.site-footer a,
+.site-footer a:visited {
+  color: var(--frictera-signal);
+}
+
 .footer-col a {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
@@ -1547,8 +1601,13 @@ html[data-theme="dark"] .field select {
   transition: color 0.2s ease;
 }
 
-.footer-col a:hover {
+.footer-col a:hover,
+.footer-col a:visited:hover {
   color: var(--frictera-evidence);
+}
+
+.footer-col a:visited {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .footer-bottom {
@@ -1642,7 +1701,7 @@ html[data-theme="dark"] .theme-toggle {
   border: none;
   border-radius: calc(var(--radius-md) - 2px);
   background: transparent;
-  color: var(--frictera-graphite);
+  color: var(--frictera-text-muted);
   font-size: 0.8125rem;
   font-weight: 600;
   cursor: pointer;
@@ -1672,7 +1731,7 @@ html[data-theme="dark"] .theme-toggle-button.is-active {
 }
 
 .theme-toggle-button:focus-visible {
-  outline: 2px solid var(--frictera-evidence);
+  outline: 2px solid var(--frictera-focus);
   outline-offset: 2px;
 }
 
@@ -1782,7 +1841,7 @@ html[data-theme="dark"] .mobile-nav a {
 .page-legal,
 .page-research,
 .page-contact {
-  background: var(--frictera-cloud);
+  background: var(--frictera-bg);
   min-height: calc(100vh - var(--header-height));
   padding-bottom: var(--space-2xl);
 }
@@ -1804,11 +1863,12 @@ html[data-theme="dark"] .mobile-nav a {
   letter-spacing: -0.03em;
   margin-bottom: var(--space-md);
   line-height: 1.1;
+  color: var(--frictera-text);
 }
 
 .page-updated {
   font-size: var(--text-sm);
-  color: var(--frictera-graphite);
+  color: var(--frictera-text-muted);
   margin: 0;
 }
 
@@ -1825,7 +1885,7 @@ html[data-theme="dark"] .mobile-nav a {
 
 .legal-content,
 .research-content {
-  background: var(--frictera-white);
+  background: var(--frictera-surface);
   border: 1px solid var(--frictera-border);
   border-radius: var(--radius-md);
   padding: var(--space-2xl);
@@ -1850,8 +1910,17 @@ html[data-theme="dark"] .mobile-nav a {
 .legal-content p,
 .research-content p,
 .contact-content p {
-  color: var(--frictera-graphite);
+  color: var(--frictera-text-muted);
   margin-bottom: var(--space-md);
+}
+
+.legal-content a,
+.legal-content a:visited,
+.research-content a,
+.research-content a:visited,
+.contact-content a,
+.contact-content a:visited {
+  color: var(--frictera-action);
 }
 
 .legal-content ul,
@@ -1859,7 +1928,7 @@ html[data-theme="dark"] .mobile-nav a {
 .contact-content ul {
   padding-left: 1.5rem;
   margin-bottom: var(--space-md);
-  color: var(--frictera-graphite);
+  color: var(--frictera-text-muted);
 }
 
 .legal-content li,
@@ -1886,7 +1955,7 @@ html[data-theme="dark"] .mobile-nav a {
 }
 
 .page-contact .guided-intake {
-  background: var(--frictera-white);
+  background: var(--frictera-surface);
   border: 1px solid var(--frictera-border);
   border-radius: var(--radius-md);
   padding: var(--space-xl);
@@ -1914,18 +1983,21 @@ html[data-theme="dark"] .mobile-nav a {
 
 .contact-form .form-note {
   font-size: var(--text-sm);
-  color: var(--frictera-graphite);
+  color: var(--frictera-text-muted);
   margin-bottom: var(--space-lg);
 }
 
-.contact-form .form-note a {
-  color: var(--frictera-teal);
+.contact-form .form-note a,
+.contact-form .form-note a:visited,
+.expectation-panel a,
+.expectation-panel a:visited {
+  color: var(--frictera-action);
 }
 
 .expectation-panel {
   position: sticky;
   top: calc(var(--header-height) + var(--space-md));
-  background: var(--frictera-white);
+  background: var(--frictera-surface-raised);
   border: 1px solid var(--frictera-border);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
@@ -1960,7 +2032,7 @@ html[data-theme="dark"] .mobile-nav a {
   flex: 0 0 auto;
   font-size: var(--text-sm);
   font-weight: 700;
-  color: var(--frictera-teal);
+  color: var(--frictera-action);
   width: 1.5rem;
 }
 
@@ -1991,8 +2063,9 @@ html[data-theme="dark"] .mobile-nav a {
   color: var(--frictera-text);
 }
 
-.expectation-contact a {
-  color: var(--frictera-teal);
+.expectation-contact a,
+.expectation-contact a:visited {
+  color: var(--frictera-action);
 }
 
 .field-full {
@@ -2039,8 +2112,9 @@ html[data-theme="dark"] .mobile-nav a {
   box-shadow: 0 4px 6px rgba(11, 18, 32, 0.04);
 }
 
-html[data-theme="dark"] .guided-intake {
-  background: var(--frictera-surface-raised);
+html[data-theme="dark"] .guided-intake,
+html[data-theme="dark"] .page-contact .guided-intake {
+  background: var(--frictera-surface);
   border-color: var(--frictera-border);
 }
 
@@ -2148,11 +2222,15 @@ html[data-theme="dark"] .guided-intake {
 
 html[data-theme="dark"] .option-card {
   background: rgba(7, 17, 29, 0.4);
-  border-color: rgba(180, 203, 215, 0.14);
+  border-color: rgba(180, 203, 215, 0.55);
 }
 
 .option-card:hover {
   border-color: var(--frictera-teal);
+}
+
+html[data-theme="dark"] .option-card:hover {
+  border-color: var(--frictera-action);
 }
 
 .option-card.is-selected {
@@ -2163,11 +2241,17 @@ html[data-theme="dark"] .option-card {
 
 html[data-theme="dark"] .option-card.is-selected {
   background: rgba(8, 127, 120, 0.12);
+  border-color: var(--frictera-action);
+  box-shadow: 0 0 0 1px var(--frictera-action);
+}
+
+html[data-theme="dark"] .option-card:not(.is-selected) .check {
+  border-color: rgba(180, 203, 215, 0.55);
 }
 
 .option-card.has-focus,
 .option-card:focus-within {
-  outline: 2px solid var(--frictera-evidence);
+  outline: 2px solid var(--frictera-focus);
   outline-offset: 2px;
 }
 
@@ -2255,7 +2339,7 @@ html[data-theme="dark"] .option-card.is-selected {
 html[data-theme="dark"] .option-card .card-reveal input,
 html[data-theme="dark"] .option-card .card-reveal textarea {
   background: rgba(7, 17, 29, 0.6);
-  border-color: rgba(180, 203, 215, 0.14);
+  border-color: var(--frictera-border);
 }
 
 .intake-actions {
@@ -2274,8 +2358,9 @@ html[data-theme="dark"] .option-card .card-reveal textarea {
   margin: var(--space-lg) 0 0 0;
 }
 
-.intake-note a {
-  color: var(--frictera-teal);
+.intake-note a,
+.intake-note a:visited {
+  color: var(--frictera-action);
 }
 
 .intake-status {
@@ -2389,7 +2474,7 @@ html[data-theme="dark"] .call-scheduling-gate {
 }
 
 .call-scheduling-gate strong {
-  color: var(--frictera-teal);
+  color: var(--frictera-action);
 }
 
 /* Scheduling surface */

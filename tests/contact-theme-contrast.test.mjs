@@ -13,13 +13,13 @@ const protectedHashes = {
   'frictera-theme/assets/js/intake.js': '95137e351eeb3ceaf6df4fc737158688516b77ddebfd8ad96b5c9cf4ce07caa5',
   'frictera-theme/functions.php': 'd45c9f232db92745a7bfde9af6575a6e054a8bf23d0905a287b194f1f6afdb52',
   'frictera-theme/theme.json': '0aae4015ccd78696f63244f294b5a7e49118fe13eeac43cfebe078c5723c8d1e',
-  'frictera-theme/templates/page-home.html': 'f3fad829ecb96f6b967dc87e9ffb0cff4fae29e7ff3e485eed75e17e3905ea9a',
-  'frictera-theme/templates/page-contact.html': '59f77bb293a8f22d49cfdb3ce5942fe12428144f1f7d470c6f0a8407a8ab89be',
+  'frictera-theme/templates/page-home.html': '867eb412d6df71cd2521913895e7ee1c176e633d7bd4b930b0ec3b01bb8f1a71',
+  'frictera-theme/templates/page-contact.html': '4da2b3ff4f365398e1449a121c5f67ec36f4c2eace587b84c7749d1385126328',
   'frictera-theme/templates/page-research.html': '561c8a9068cf80690be6ccbfced01e7105782d543ccb630b8f1aefc5e7d48195',
   'frictera-theme/templates/page-privacy.html': '1a77a7eac4e7de4391ed23e087b34848177759dd9c33bc2f1302365399e3136f',
   'frictera-theme/templates/page-terms.html': '699103374f52cbab8d8bf3afb49da9226e9d2a06cb0f298186687e88f9a24cc4',
   'frictera-theme/templates/index.html': '86315b7b37db2e72cebc720039d6955a98bc6b183895909ccbd8acfba7b19de5',
-  'frictera-theme/parts/header.html': '47fda4a1533b76395bc26bf94fed9f5094c7deea7eb8151e71faf7f2019f7296',
+  'frictera-theme/parts/header.html': '96f004f14d4dc3160b2837e9ede0507acc2cb81d29eb291066a77ccc0f5aa94c',
   'frictera-theme/parts/footer.html': '412735ede55738b2bc32d38aea47b6f05af906380c52028196cea4a58a1b446d',
   'frictera-theme/README.md': '5c73633a48437c0c96487b7f6d243ab8a8c936c1fd4805326a41a8252d11207b',
   'README.md': '7d57e6555cbc59b864bf6a1d3129f287c5fc348ab7e0762e355c7ae4582b6ef6',
@@ -137,9 +137,13 @@ test('sitewide surfaces, evidence, workflow, footer and skip link', () => {
   assert.equal(declarations(block('.diagram-node.friction'))['color'], 'var(--frictera-accent-text)');
   assert.equal(declarations(block('.diagram-node.outcome'))['color'], 'var(--frictera-accent-text)');
   assert.equal(declarations(block('.diagram-arrow'))['color'], 'var(--frictera-teal)');
-  assert.equal(declarations(block('html[data-theme="light"] .evidence-label'))['color'], 'var(--frictera-text)');
-  assert.equal(declarations(block('html[data-theme="light"] .evidence-note'))['color'], 'var(--frictera-text-muted)');
-  assert.equal(declarations(block('html[data-theme="light"] .evidence-number'))['color'], 'var(--frictera-accent-text) !important');
+  assert.equal(declarations(block('.evidence-console')).background, 'var(--frictera-surface)');
+  assert.equal(declarations(block('.evidence-console')).color, 'var(--frictera-text)');
+  assert.equal(declarations(block('.evidence-panel')).background, 'var(--frictera-surface-soft)');
+  assert.equal(declarations(block('.evidence-panel')).color, 'var(--frictera-text)');
+  assert.equal(declarations(block('.evidence-label')).color, 'var(--frictera-text)');
+  assert.equal(declarations(block('.evidence-note')).color, 'var(--frictera-text-muted)');
+  assert.equal(declarations(block('.evidence-number')).color, 'var(--frictera-accent-text)');
   assert.equal(declarations(block('.evidence-flag'))['color'], 'var(--frictera-accent-text)');
   assert.equal(declarations(block('.theme-toggle-button'))['color'], 'var(--frictera-text)');
   assert.equal(declarations(block('.site-footer a,\n.site-footer a:visited'))['color'], 'var(--frictera-signal)');
@@ -157,7 +161,6 @@ test('sitewide surfaces, evidence, workflow, footer and skip link', () => {
   const colorImportant = css.match(/color:[^;]*!important/g) || [];
   assert.deepEqual(colorImportant, [
     'color: var(--frictera-text-muted) !important',
-    'color: var(--frictera-accent-text) !important',
     'color: #dc2626 !important',
   ]);
 });

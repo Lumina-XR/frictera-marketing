@@ -3,6 +3,10 @@
 
   var SELECTOR = '.guided-intake';
 
+  function isIntakeEnabled(value) {
+    return value === true || value === 1 || value === '1';
+  }
+
   function ensureSecurityFields(form) {
     var nonce = window.fricteraIntake && window.fricteraIntake.nonce ? window.fricteraIntake.nonce : '';
     if (!form.querySelector('input[name="_wpnonce"]')) {
@@ -148,7 +152,7 @@
       return;
     }
 
-    if (window.fricteraIntake && window.fricteraIntake.enabled === false) {
+    if (window.fricteraIntake && !isIntakeEnabled(window.fricteraIntake.enabled)) {
       showStatus(form, 'error', 'Submissions are not yet enabled. Please try again later.');
       return;
     }

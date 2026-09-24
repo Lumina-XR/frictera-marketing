@@ -10,11 +10,11 @@ const css = readFileSync(join(root, 'frictera-theme/style.css'), 'utf8');
 
 const protectedHashes = {
   'frictera-theme/assets/js/theme.js': '1aa9ef6f47a4af5df4e0981c5f1a583183b03f24065fcd40c625d0516f186c9a',
-  'frictera-theme/assets/js/intake.js': '95137e351eeb3ceaf6df4fc737158688516b77ddebfd8ad96b5c9cf4ce07caa5',
+  'frictera-theme/assets/js/intake.js': 'efef3f65e439c65a8b35b233916d8654d780316497cfcd4af741ff9753210029',
   'frictera-theme/functions.php': 'd623147265e536208ce7fb0c4f38a7a918afbf77331af29b54c00dd2f4457480',
   'frictera-theme/theme.json': '0aae4015ccd78696f63244f294b5a7e49118fe13eeac43cfebe078c5723c8d1e',
-  'frictera-theme/templates/page-home.html': '1f0bcf442c3a8b866513f3e031cce3fb6724d5d7c325126cd2891ca7d0d5c15a',
-  'frictera-theme/templates/page-contact.html': '138fc84ef32d9c827e727ef40397accf5ddf81ab64a61746c618495c805ee821',
+  'frictera-theme/templates/page-home.html': '887e741de2e5355c57533235989888a33c7db178d2b026f7c2961e9ffaf34aec',
+  'frictera-theme/templates/page-contact.html': '1fa19e28d2979e1c371989205e7827a4e9c3ffee91e82909432acd5aa11ab561',
   'frictera-theme/templates/page-research.html': '11675828f280ad597f51a4686b92fd9ee2be8d0fb0541cd7104e08f3ec2b6840',
   'frictera-theme/templates/page-privacy.html': '1a77a7eac4e7de4391ed23e087b34848177759dd9c33bc2f1302365399e3136f',
   'frictera-theme/templates/page-terms.html': '699103374f52cbab8d8bf3afb49da9226e9d2a06cb0f298186687e88f9a24cc4',

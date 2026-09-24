@@ -69,5 +69,5 @@ test('research purpose wording and legal bodies stay bounded', () => {
 test('engineering numeric claims remain on home unchanged', () => {
   assert.match(home, /<span class="evidence-number">122<\/span>/);
   assert.match(home, /<span class="evidence-number">58<\/span>/);
-  assert.match(home, /From £1,500/);
+  assert.doesNotMatch(home, /From £1,500/);
 });

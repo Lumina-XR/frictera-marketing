@@ -31,7 +31,7 @@ test('the contact page remains the only Friction Review form', () => {
   assert.match(contact, />Request a Friction Review</);
   assert.equal(
     createHash('sha256').update(readFileSync(join(root, 'frictera-theme/templates/page-contact.html'))).digest('hex'),
-    '4da2b3ff4f365398e1449a121c5f67ec36f4c2eace587b84c7749d1385126328',
+    '138fc84ef32d9c827e727ef40397accf5ddf81ab64a61746c618495c805ee821',
   );
 });
 

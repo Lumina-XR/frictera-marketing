@@ -1842,8 +1842,16 @@ html[data-theme="dark"] .mobile-nav a {
 .page-research,
 .page-contact {
   background: var(--frictera-bg);
+  color: var(--frictera-text);
   min-height: calc(100vh - var(--header-height));
   padding-bottom: var(--space-2xl);
+}
+
+html[data-theme="dark"] .page-legal,
+html[data-theme="dark"] .page-research,
+html[data-theme="dark"] .page-contact {
+  background: var(--frictera-bg);
+  color: var(--frictera-text);
 }
 
 .page-header {
@@ -1998,10 +2006,17 @@ html[data-theme="dark"] .mobile-nav a {
   position: sticky;
   top: calc(var(--header-height) + var(--space-md));
   background: var(--frictera-surface-raised);
+  color: var(--frictera-text);
   border: 1px solid var(--frictera-border);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
   box-shadow: 0 4px 6px rgba(11, 18, 32, 0.04);
+}
+
+html[data-theme="dark"] .expectation-panel {
+  background: var(--frictera-surface-raised);
+  color: var(--frictera-text);
+  border-color: var(--frictera-border);
 }
 
 .expectation-heading {
@@ -2009,6 +2024,7 @@ html[data-theme="dark"] .mobile-nav a {
   font-weight: 700;
   margin: 0 0 var(--space-md);
   letter-spacing: -0.02em;
+  color: var(--frictera-text);
 }
 
 .expectation-list {

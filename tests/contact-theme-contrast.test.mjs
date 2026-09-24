@@ -212,3 +212,25 @@ test('borders, placeholders, titles and diagram nodes stay perceivable', () => {
   assert.ok(contrast(light['--frictera-signal'], footer) >= 4.5);
   assert.ok(contrast(dark['--frictera-text-muted'], '#122131') >= 4.5);
 });
+
+test('contact dark mode canvas and what-happens-next follow the theme', () => {
+  const page = declarations(block('html[data-theme="dark"] .page-contact'));
+  const panel = declarations(block('html[data-theme="dark"] .expectation-panel'));
+  const canvas = dark['--frictera-bg'];
+  const card = dark['--frictera-surface-raised'];
+  assert.equal(page.background, 'var(--frictera-bg)');
+  assert.equal(page.color, 'var(--frictera-text)');
+  assert.equal(panel.background, 'var(--frictera-surface-raised)');
+  assert.equal(panel.color, 'var(--frictera-text)');
+  assert.equal(declarations(block('.expectation-heading')).color, 'var(--frictera-text)');
+  assert.notEqual(page.background, 'var(--frictera-cloud)');
+  assert.notEqual(panel.background, 'var(--frictera-white)');
+  assert.ok(contrast(dark['--frictera-text'], canvas) >= 4.5);
+  assert.ok(contrast(dark['--frictera-text-muted'], canvas) >= 4.5);
+  assert.ok(contrast(dark['--frictera-text'], card) >= 4.5);
+  assert.ok(contrast(dark['--frictera-text-muted'], card) >= 4.5);
+  assert.ok(contrast(dark['--frictera-action'], card) >= 4.5);
+  assert.ok(contrast(dark['--frictera-border'], card) >= 3);
+  assert.ok(luminance(canvas) < 0.05);
+  assert.ok(luminance(card) < 0.05);
+});

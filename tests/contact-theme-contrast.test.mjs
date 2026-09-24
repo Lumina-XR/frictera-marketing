@@ -13,7 +13,7 @@ const protectedHashes = {
   'frictera-theme/assets/js/intake.js': '95137e351eeb3ceaf6df4fc737158688516b77ddebfd8ad96b5c9cf4ce07caa5',
   'frictera-theme/functions.php': 'd45c9f232db92745a7bfde9af6575a6e054a8bf23d0905a287b194f1f6afdb52',
   'frictera-theme/theme.json': '0aae4015ccd78696f63244f294b5a7e49118fe13eeac43cfebe078c5723c8d1e',
-  'frictera-theme/templates/page-home.html': '77bdbbe33ece81a02696d8d1ae7f7850fceef9fce7c45cc1359474dcb30be76a',
+  'frictera-theme/templates/page-home.html': 'f3fad829ecb96f6b967dc87e9ffb0cff4fae29e7ff3e485eed75e17e3905ea9a',
   'frictera-theme/templates/page-contact.html': '59f77bb293a8f22d49cfdb3ce5942fe12428144f1f7d470c6f0a8407a8ab89be',
   'frictera-theme/templates/page-research.html': '561c8a9068cf80690be6ccbfced01e7105782d543ccb630b8f1aefc5e7d48195',
   'frictera-theme/templates/page-privacy.html': '1a77a7eac4e7de4391ed23e087b34848177759dd9c33bc2f1302365399e3136f',
@@ -245,6 +245,7 @@ test('theme controls and booking CTA stay distinguishable', () => {
   const cta = declarations(block('.site-header .header-inner .header-controls .wp-block-buttons > .wp-block-button.nav-cta > .wp-block-button__link'));
   assert.equal(cta.background, 'var(--frictera-teal)');
   assert.equal(cta.color, 'var(--frictera-white)');
+  assert.equal(declarations(block('.mobile-nav .nav-cta')).color, 'var(--frictera-white)');
   const ctaHover = declarations(block('.site-header .header-inner .header-controls .wp-block-buttons > .wp-block-button.nav-cta > .wp-block-button__link:hover'));
   const ctaHoverDark = declarations(block('html[data-theme="dark"] .site-header .header-inner .header-controls .wp-block-buttons > .wp-block-button.nav-cta > .wp-block-button__link:hover'));
   assert.equal(ctaHover.background, 'var(--frictera-ink)');

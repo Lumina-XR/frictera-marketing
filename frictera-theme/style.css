@@ -1455,6 +1455,16 @@ html[data-theme="dark"] .pilot-card {
   background: var(--frictera-bg);
 }
 
+.booking-conversion {
+  display: flex;
+  justify-content: center;
+}
+
+.booking-conversion .btn {
+  min-height: 3rem;
+  padding-inline: 1.5rem;
+}
+
 .contact-card {
   max-width: 48rem;
   margin: 0 auto;
@@ -1827,6 +1837,7 @@ html[data-theme="dark"] .mobile-nav a {
 .mobile-nav .nav-cta {
   margin-top: 0.5rem;
   text-align: center;
+  color: var(--frictera-white);
 }
 
 @media (min-width: 1024px) {

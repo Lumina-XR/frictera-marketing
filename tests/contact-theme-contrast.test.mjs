@@ -11,7 +11,7 @@ const css = readFileSync(join(root, 'frictera-theme/style.css'), 'utf8');
 const protectedHashes = {
   'frictera-theme/assets/js/theme.js': '1aa9ef6f47a4af5df4e0981c5f1a583183b03f24065fcd40c625d0516f186c9a',
   'frictera-theme/assets/js/intake.js': '95137e351eeb3ceaf6df4fc737158688516b77ddebfd8ad96b5c9cf4ce07caa5',
-  'frictera-theme/functions.php': 'd45c9f232db92745a7bfde9af6575a6e054a8bf23d0905a287b194f1f6afdb52',
+  'frictera-theme/functions.php': 'd623147265e536208ce7fb0c4f38a7a918afbf77331af29b54c00dd2f4457480',
   'frictera-theme/theme.json': '0aae4015ccd78696f63244f294b5a7e49118fe13eeac43cfebe078c5723c8d1e',
   'frictera-theme/templates/page-home.html': '1f0bcf442c3a8b866513f3e031cce3fb6724d5d7c325126cd2891ca7d0d5c15a',
   'frictera-theme/templates/page-contact.html': '138fc84ef32d9c827e727ef40397accf5ddf81ab64a61746c618495c805ee821',

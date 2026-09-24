@@ -35,11 +35,14 @@ add_action('wp_enqueue_scripts', 'frictera_theme_bootstrap', 0);
  * Enqueue theme styles
  */
 function frictera_enqueue_styles() {
+    $style_path = get_stylesheet_directory() . '/style.css';
+    $style_ver  = wp_get_theme()->get('Version') . '-' . (string) filemtime($style_path);
+
     wp_enqueue_style(
         'frictera-style',
         get_stylesheet_uri(),
         array(),
-        wp_get_theme()->get('Version')
+        $style_ver
     );
 }
 add_action('wp_enqueue_scripts', 'frictera_enqueue_styles');
@@ -48,11 +51,14 @@ add_action('wp_enqueue_scripts', 'frictera_enqueue_styles');
  * Enqueue theme controller for interactive components (theme toggle, mobile nav).
  */
 function frictera_enqueue_scripts() {
+    $script_path = get_template_directory() . '/assets/js/theme.js';
+    $script_ver  = wp_get_theme()->get('Version') . '-' . (string) filemtime($script_path);
+
     wp_enqueue_script(
         'frictera-theme',
         get_template_directory_uri() . '/assets/js/theme.js',
         array(),
-        wp_get_theme()->get('Version'),
+        $script_ver,
         true
     );
 }

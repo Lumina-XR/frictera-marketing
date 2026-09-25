@@ -66,8 +66,15 @@ test('research purpose wording and legal bodies stay bounded', () => {
   );
 });
 
-test('engineering numeric claims remain on home unchanged', () => {
-  assert.match(home, /<span class="evidence-number">122<\/span>/);
-  assert.match(home, /<span class="evidence-number">58<\/span>/);
+test('engineering evidence counts match re-attested public claims', () => {
+  assert.match(
+    home,
+    /<span class="evidence-number">137<\/span>[\s\S]*Focused Node demo tests/,
+  );
+  assert.match(
+    home,
+    /<span class="evidence-number">58<\/span>[\s\S]*Python scoring tests/,
+  );
+  assert.doesNotMatch(home, /<span class="evidence-number">122<\/span>/);
   assert.doesNotMatch(home, /From £1,500/);
 });
